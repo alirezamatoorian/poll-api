@@ -25,3 +25,23 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def get_full_name(self):
         return f"{self.first_name} {self.last_name}"
+
+
+class Poll(models.Model):
+    title = models.CharField(max_length=250)
+    description = models.TextField(null=True, blank=True)
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='polls')
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+
+class Choice(models.Model):
+    text = models.CharField(max_length=250)
+    poll = models.ForeignKey(Poll, on_delete=models.CASCADE, related_name='choices')
+
+    def __str__(self):
+        return self.text
