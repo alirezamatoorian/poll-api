@@ -45,3 +45,12 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.text
+
+
+class Vote(models.Model):
+    Choice = models.ForeignKey(Choice, on_delete=models.CASCADE, related_name="votes")
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    voted_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('choice', 'user')
