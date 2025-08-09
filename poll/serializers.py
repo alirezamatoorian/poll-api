@@ -16,6 +16,7 @@ class PollSerializer(serializers.ModelSerializer):
     class Meta:
         model = Poll
         fields = '__all__'
+        read_only_fields = ['creator']
 
     def validate(self, attrs):
         start_date = attrs['start_date']
