@@ -22,9 +22,7 @@ class PollSerializer(serializers.ModelSerializer):
         end_date = attrs['end_date']
         if start_date >= end_date:
             raise serializers.ValidationError("تاریخ شروع باید قبل از تاریخ پایان باشد")
-        if end_date <= start_date:
-            raise serializers.ValidationError('تاریخ پایان باید بعد از تاریخ شروع باشد')
-        if start_date <= timezone.now():
+        if start_date < timezone.now():
             raise serializers.ValidationError("تاریخ شروع باید بعد از زمان فعلی باشد")
         return attrs
 
