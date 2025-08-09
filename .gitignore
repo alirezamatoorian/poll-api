@@ -1,0 +1,37 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+
+# === Django ===
+*.log
+db.sqlite3
+media/
+staticfiles/
+static/
+.env
+
+# === DRF ===
+# (نیازی به جدا کردن از Django نداره ولی اگه فایل API docs داری می‌تونی اضافه کنی)
+
+# === PyCharm ===
+.idea/
+*.iml
+
+# === Virtual Environment ===
+venv/
+env/
+ENV/
+.venv/
+
+# === PostgreSQL ===
+*.sql
+*.dump
+
+# === OS files ===
+.DS_Store
+Thumbs.db

@@ -48,7 +48,7 @@ class Choice(models.Model):
 
 
 class Vote(models.Model):
-    Choice = models.ForeignKey(Choice, on_delete=models.CASCADE, related_name="votes")
+    choice = models.ForeignKey(Choice, on_delete=models.CASCADE, related_name="votes")
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     voted_at = models.DateTimeField(auto_now_add=True)
 
